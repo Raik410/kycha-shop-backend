@@ -103,6 +103,8 @@ model OrderItem {
 
   quantity Int
   price Int
+
+  @@map("order_item")
 }
 
 enum EnumOrderStatus {
