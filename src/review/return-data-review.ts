@@ -9,4 +9,5 @@ export const returnReviewObject: Prisma.ReviewSelect = {
   user: {
     select: returnUserObject,
   },
+  product: true,
 };

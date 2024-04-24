@@ -13,7 +13,7 @@ import { CurrentUser } from 'src/auth/decorators/user.decorator';
 import { ReviewDto } from './dto/review.dto';
 import { ReviewService } from './review.service';
 
-@Controller('review')
+@Controller('reviews')
 export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
 
@@ -29,8 +29,8 @@ export class ReviewController {
   @Get('average-value/:productId')
   @HttpCode(200)
   @Auth()
-  async getAverageValueByProductId(@Param('productId') productId: number) {
-    return this.reviewService.getAverageValueByProductId(productId);
+  async getAverageValueByProductId(@Param('productId') productId: string) {
+    return this.reviewService.getAverageValueByProductId(+productId);
   }
 
   @UsePipes(new ValidationPipe())
